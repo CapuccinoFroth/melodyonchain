@@ -6,6 +6,9 @@
 In phase 1 the project generates personalized music using on-chain transaction activity while leveraging Chainlink’s products like CCIP.  In phase 2, the project will combine the worlds of DeFi, cross-chain interoperability, and AI-generated music to create a unique user experience and we will use  Functions and Automation.
 
 
+<img width="880" alt="Screenshot 2024-11-17 at 4 28 52 AM" src="https://github.com/user-attachments/assets/dc5d3078-47df-4e7b-8f8c-1fd177008441">
+
+
 ## How It Works: Concept Overview
 ChainMelody will use on-chain data (like transaction volume, frequency, gas fees, token swaps, etc.) to generate musical patterns, melodies, and rhythms. By leveraging Chainlink CCIP, users can pull data from multiple blockchains, ensuring that the generated music reflects their entire crypto journey, even if they use different networks.
 
