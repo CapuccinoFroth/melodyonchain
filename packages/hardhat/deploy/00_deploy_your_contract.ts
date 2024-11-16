@@ -1,6 +1,7 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
 import { Contract } from "ethers";
+import { ethers, network } from "hardhat";
 
 /**
  * Deploys a contract named "YourContract" using the deployer account and
@@ -22,19 +23,40 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("YourContract", {
+  const ccipRouterAddressEthereumSepolia = `0x0bf3de8c5d3e8a2b34d2beeb17abfcebaf363a59`;
+  const linkTokenAddressEthereumSepolia = `0x779877A7B0D9E8603169DdbD7836e478b4624789`;
+  const chainIdEthereumSepolia = `16015286601757825753`;
+
+  // deploy xNFT on eth sepolias
+
+  await deploy("XNFT", {
     from: deployer,
     // Contract constructor arguments
-    args: [deployer],
+    args: [ccipRouterAddressEthereumSepolia, linkTokenAddressEthereumSepolia, chainIdEthereumSepolia],
     log: true,
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
     // automatically mining the contract deployment transaction. There is no effect on live networks.
     autoMine: true,
   });
 
-  // Get the deployed contract to interact with it after deploying.
-  const yourContract = await hre.ethers.getContract<Contract>("YourContract", deployer);
-  console.log("👋 Initial greeting:", await yourContract.greeting());
+  const xNFTContract = await hre.ethers.getContract<Contract>("XNFT", deployer);
+  console.log(`XNFT deployed on ${network.name} with address ${xNFTContract.target}`);
+
+  // deploy xNFT on arbitrum sepolia
+
+  // await deploy("YourContract", {
+  //   from: deployer,
+  //   // Contract constructor arguments
+  //   args: [deployer],
+  //   log: true,
+  //   // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
+  //   // automatically mining the contract deployment transaction. There is no effect on live networks.
+  //   autoMine: true,
+  // });
+
+  // // Get the deployed contract to interact with it after deploying.
+  // const yourContract = await hre.ethers.getContract<Contract>("YourContract", deployer);
+  // console.log("👋 Initial greeting:", await yourContract.greeting());
 };
 
 export default deployYourContract;
