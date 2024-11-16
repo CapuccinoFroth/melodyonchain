@@ -1,4 +1,6 @@
-# 🎶🎻🎺 "ChainMelody" - Creating Music from On-Chain Transaction Activity Using Chainlink CCIP
+# 🎶🎻🎺 ChainMelody  
+
+### Creating Music from On-Chain Transaction Activity Using Chainlink CCIP
 
 
 In phase 1 the project generates personalized music using on-chain transaction activity while leveraging Chainlink’s products like CCIP.  In phase 2, the project will combine the worlds of DeFi, cross-chain interoperability, and AI-generated music to create a unique user experience and we will use  Functions and Automation.
