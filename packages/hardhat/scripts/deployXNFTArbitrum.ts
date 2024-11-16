@@ -10,7 +10,8 @@ async function main() {
     const xNft = await ethers.deployContract("XNFT", [
         ccipRouterAddressArbitrumSepolia,
         linkTokenAddressArbitrumSepolia,
-        chainIdArbitrumSepolia
+        chainIdArbitrumSepolia,
+        "Arbitrum Music NFT", "ANFT"
     ]);
 
     await xNft.waitForDeployment();
