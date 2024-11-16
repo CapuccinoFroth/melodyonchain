@@ -1,3 +1,35 @@
+# 🎶🎻🎺 "ChainMelody" - Creating Music from On-Chain Transaction Activity Using Chainlink CCIP
+
+
+In phase 1 the project generates personalized music using on-chain transaction activity while leveraging Chainlink’s products like CCIP.  In phase 2, the project will combine the worlds of DeFi, cross-chain interoperability, and AI-generated music to create a unique user experience and we will use  Functions and Automation.
+
+
+## How It Works: Concept Overview
+ChainMelody will use on-chain data (like transaction volume, frequency, gas fees, token swaps, etc.) to generate musical patterns, melodies, and rhythms. By leveraging Chainlink CCIP, users can pull data from multiple blockchains, ensuring that the generated music reflects their entire crypto journey, even if they use different networks.
+
+
+Step 1: Get data from one or various networks.
+In this case we get it from Ethereum Sepolia using Etherscan API with a key .
+
+Step 2: Upload that data to an AI API to generate music with the input being the data collected from on-chain and returns an mp3. [This is for phase 2]
+
+Step 3: We upload the mp3 to IPFS and generate a music NFT to mint.  [This is for phase 2]
+
+Step 4: The music NFT is minted on a blockchain, in this case Arbitrum. The Token ID needs to be entered in the input field text box.
+
+Step 5: The music NFT can be sent out to the other chains via CCIP. 
+
+Step 6: The tnx hash can be confirmed in CCIP Explorer.
+
+Use-case:
+Yearly wrap up music compilation of your activity onchain.
+Listen to DeFi Summer.
+Gift your loved ones their personalized music address as sounds. 
+
+
+
+
+
 # 🏗 Scaffold-ETH 2
 
 <h4 align="center">
