@@ -6,7 +6,7 @@ import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/
 import {ERC721Burnable} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import {IERC20} from "@openzeppelin/contracts/interfaces/IERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import {ReentrancyGuard} from "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import {Client} from "@chainlink/contracts-ccip/src/v0.8/ccip/libraries/Client.sol";
 import {IRouterClient} from "@chainlink/contracts-ccip/src/v0.8/ccip/interfaces/IRouterClient.sol";
 import {IAny2EVMMessageReceiver} from "@chainlink/contracts-ccip/src/v0.8/ccip/interfaces/IAny2EVMMessageReceiver.sol";
@@ -128,8 +128,10 @@ contract XNFT is
     constructor(
         address ccipRouterAddress,
         address linkTokenAddress,
-        uint64 currentChainSelector
-    ) ERC721("Cross Chain NFT", "XNFT") {
+        uint64 currentChainSelector,
+        string memory name,
+        string memory ticker
+    ) ERC721(name, ticker) {
         if (ccipRouterAddress == address(0)) revert InvalidRouter(address(0));
         i_ccipRouter = IRouterClient(ccipRouterAddress);
         i_linkToken = LinkTokenInterface(linkTokenAddress);
@@ -143,13 +145,13 @@ contract XNFT is
         _setTokenURI(tokenId, uri);
     }
 
-     function mintMusicNFT(string memory uri) public returns (uint256) {
-        uint256 tokenId = _nextTokenId++;
-        _safeMint(msg.sender, tokenId);
-        _setTokenURI(tokenId, uri);
-        tokenId += 1;
-        return tokenId;
-    }
+    //  function mintMusicNFT(string memory uri) public returns (uint256) {
+    //     uint256 tokenId = _nextTokenId++;
+    //     _safeMint(msg.sender, tokenId);
+    //     _setTokenURI(tokenId, uri);
+    //     tokenId += 1;
+    //     return tokenId;
+    // }
 
     function enableChain(
         uint64 chainSelector,
@@ -311,7 +313,7 @@ contract XNFT is
             super.supportsInterface(interfaceId);
     }
 
-    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
-        super._burn(tokenId);
-    }
+    // function _burn(uint256 tokenId) internal override {
+    //     super._burn(tokenId);
+    // }
 }

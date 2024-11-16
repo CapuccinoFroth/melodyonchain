@@ -44,6 +44,10 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
 
   // deploy xNFT on arbitrum sepolia
 
+    const ccipRouterAddressArbitrumSepolia = `0x2a9c5afb0d0e4bab2bcdae109ec4b0c4be15a165`;
+    const linkTokenAddressArbitrumSepolia = `0xb1D4538B4571d411F07960EF2838Ce337FE1E80E`;
+    const chainIdArbitrumSepolia = `3478487238524512106`;
+
   // await deploy("YourContract", {
   //   from: deployer,
   //   // Contract constructor arguments
